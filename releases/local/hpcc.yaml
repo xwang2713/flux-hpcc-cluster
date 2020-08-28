@@ -4,16 +4,16 @@ metadata:
   name: hpcc
   namespace: default
 spec:
-  releaseName: hpcc-local 
+  releaseName: hpcc 
   chart:
     git: https://github.com/hpcc-systems/helm-chart
     ref: master
-    version: 7.10.14
+    version: 7.10.16
     path: helm/hpcc
   values:
     global:
       image:
-        version: 7.10.14-1
+        version: 7.10.16-1
     storage:
       dllStorage: 
         forcePermissions: true
