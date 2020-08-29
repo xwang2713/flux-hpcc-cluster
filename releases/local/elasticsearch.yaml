@@ -8,6 +8,7 @@ spec:
   chart:
     repository: https://helm.elastic.co
     name: elasticsearch
+    version: 7.9.0
   values:
     extraInitContainers:
       - name: data-dir

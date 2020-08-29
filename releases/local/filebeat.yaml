@@ -8,3 +8,4 @@ spec:
   chart:
     repository: https://helm.elastic.co
     name: filebeat
+    version: 7.9.0
