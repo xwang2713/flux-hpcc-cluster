@@ -1,0 +1,23 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: elasticsearch
+  namespace: default
+spec:
+  releaseName: elasticsearch
+  chart:
+    repository: https://helm.elastic.co
+    name: elasticsearch
+  values:
+    extraInitContainers:
+      - name: data-dir
+        image: busybox:1.28
+        command: [ '/bin/sh', '-c', 'mkdir -p /usr/share/elasticsearch/data && chown -R 1000:1000 /usr/share/elasticsearch/ ' ]
+        securityContext:
+          runAsUser: 0
+          privileged: true
+        volumeMounts:
+          - mountPath: /usr/share/elasticsearch/data
+            name: elasticsearch-master
+    replicas: 1
+    minimumMasterNodes: 1
