@@ -8,4 +8,4 @@ spec:
   chart:
     repository: https://helm.elastic.co
     name: kibana
-    version: latest
+    version: 7.9.0
