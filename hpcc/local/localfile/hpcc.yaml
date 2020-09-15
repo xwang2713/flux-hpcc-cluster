@@ -8,16 +8,19 @@ spec:
   chart:
     git: https://github.com/hpcc-systems/helm-chart
     ref: master
-    version: 7.10.16
+    version: 7.10.20
     path: helm/hpcc
   values:
     global:
       image:
-        version: 7.10.16-1
+        version: 7.10.20-1
     storage:
-      dllStorage: 
+      dllStorage:
+        existingClaim: "dll-localfile-hpcc-localfile-pvc"
         forcePermissions: true
-      daliStorage: 
+      daliStorage:
+        existingClaim: "dali-localfile-hpcc-localfile-pvc"
         forcePermissions: true
-      dataStorage: 
+      dataStorage:
+        existingClaim: "data-localfile-hpcc-localfile-pvc"
         forcePermissions: true

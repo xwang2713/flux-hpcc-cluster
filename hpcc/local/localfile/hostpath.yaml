@@ -20,13 +20,3 @@ spec:
       #   The shared directories probably either have full permission or owned by 
       #   gid=1000 and uid=999 (hpcc user).
       hostpath: "/c/hpcc-data"
-    storage:
-      dllStorage: 
-        existingClaim: "dll-localfile-hpcc-localfile-pvc"
-        forcePermissions: true
-      daliStorage: 
-        existingClaim: "dali-localfile-hpcc-localfile-pvc"
-        forcePermissions: true
-      dataStorage: 
-        existingClaim: "data-localfile-hpcc-localfile-pvc"
-        forcePermissions: true
