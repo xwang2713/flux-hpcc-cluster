@@ -1,0 +1,32 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: localfile 
+  namespace: default
+spec:
+  releaseName: localfile
+  chart:
+    git: https://github.com/hpcc-systems/helm-chart
+    ref: master
+    version: 0.1.0
+    path: helm/examples/local/hpcc-localfile
+  values:
+    common:
+      # Docker Desktop:
+      #   On Windows:
+      #   The drive must be "/<drive>/" format. The directory must be created 
+      #   first and three sub-directories must be created also: dlls, dali and data.
+      #   On Unix:
+      #   The shared directories probably either have full permission or owned by 
+      #   gid=1000 and uid=999 (hpcc user).
+      hostpath: "/c/hpcc-data"
+    storage:
+      dllStorage: 
+        existingClaim: "dll-localfile-hpcc-localfile-pvc"
+        forcePermissions: true
+      daliStorage: 
+        existingClaim: "dali-localfile-hpcc-localfile-pvc"
+        forcePermissions: true
+      dataStorage: 
+        existingClaim: "data-localfile-hpcc-localfile-pvc"
+        forcePermissions: true
