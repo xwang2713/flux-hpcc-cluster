@@ -1,0 +1,14 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: kibana
+  namespace: default
+spec:
+  releaseName: kibana
+  chart:
+    repository: https://helm.elastic.co
+    name: kibana
+    version: 7.9.0
+  values: 
+    service:
+      type: NodePort

@@ -1,0 +1,11 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: filebeat
+  namespace: default
+spec:
+  releaseName: filebeat
+  chart:
+    repository: https://helm.elastic.co
+    name: filebeat
+    version: 7.9.0

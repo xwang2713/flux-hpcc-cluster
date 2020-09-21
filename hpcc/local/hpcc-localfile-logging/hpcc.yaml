@@ -1,0 +1,26 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: hpcc
+  namespace: default
+spec:
+  releaseName: hpcc 
+  chart:
+    git: https://github.com/hpcc-systems/helm-chart
+    ref: master
+    version: 7.10.22
+    path: helm/hpcc
+  values:
+    global:
+      image:
+        version: 7.10.22-1
+    storage:
+      dllStorage:
+        existingClaim: "dll-localfile-hpcc-localfile-pvc"
+        forcePermissions: true
+      daliStorage:
+        existingClaim: "dali-localfile-hpcc-localfile-pvc"
+        forcePermissions: true
+      dataStorage:
+        existingClaim: "data-localfile-hpcc-localfile-pvc"
+        forcePermissions: true
