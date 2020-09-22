@@ -1,0 +1,7 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+   name: eclwatch
+   labels:
+     finance: lexisnexis
+
